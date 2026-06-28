@@ -32,7 +32,7 @@ export default function RotatingBadge({
       </motion.div>
       <div className="absolute inset-0 flex items-center justify-center">
         {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src="/logo.svg" alt="Der Salon by Kristina" className="w-12" />
+        <img src="/logo.svg" alt="Der Salon by Kristina" className="w-[68px]" />
       </div>
     </div>
   );

@@ -1,13 +1,13 @@
 'use client';
 
-import { Coffee, HeartHandshake, Leaf, Wind, AirVent } from 'lucide-react';
+import { Coffee, HeartHandshake, Leaf, Wind, AirVent, SquareParking } from 'lucide-react';
 import SectionHeading from '@/components/SectionHeading';
 import Reveal from '@/components/motion/Reveal';
 import SalonSlider from '@/components/SalonSlider';
 import { experience } from '@/content/services';
 import { salonSlides } from '@/content/gallery';
 
-const icons = [HeartHandshake, Leaf, Wind, Coffee, AirVent];
+const icons = [HeartHandshake, Leaf, Wind, Coffee, AirVent, SquareParking];
 
 export default function Salon() {
   return (

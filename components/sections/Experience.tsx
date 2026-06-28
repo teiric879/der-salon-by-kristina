@@ -45,7 +45,7 @@ type Perk =
 const perks: Perk[] = [
   { Icon: Users, kind: 'count', to: 5, unit: ' Expertinnen', sub: 'mit Leidenschaft für schönes Haar' },
   { Icon: Leaf, kind: 'count', to: 100, unit: ' %', sub: 'Vegane Premium Produkte' },
-  { Icon: Coffee, kind: 'letters', text: 'Kaffee', sub: 'Flat White, Cappuccino & mehr' },
+  { Icon: Coffee, kind: 'letters', text: 'Kaffee', sub: 'Eiskaffee, Cappuccino & mehr' },
   { Icon: Sparkles, kind: 'letters', text: 'Kopfmassage', sub: 'Bei jeder Haarwäsche' },
 ];
 
@@ -80,7 +80,7 @@ export default function Experience() {
             />
             <Reveal delay={0.15}>
               <p className="mt-6 max-w-xl text-[1.05rem] leading-relaxed text-canvas/75">
-                Flat White, Cappuccino oder dein Lieblingskaffee mit MONIN Sirup, eine kleine
+                Eiskaffee, Cappuccino oder dein Lieblingskaffee mit MONIN Sirup, eine kleine
                 Süßigkeit und eine entspannende Kopfmassage. Manchmal sind es genau diese Details,
                 die den Unterschied machen.
               </p>

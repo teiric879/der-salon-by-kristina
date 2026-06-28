@@ -64,4 +64,5 @@ export const experience = [
   { title: 'Massage', desc: 'Eine entspannende Kopfmassage und unsere Massage-Sessel machen deine Haarwäsche zum Wohlfühlmoment.' },
   { title: 'Kaffee & WLAN', desc: 'Wir verwöhnen nicht nur dein Haar. Freu dich auf hochwertige Kaffeespezialitäten, MONIN Sirups und kostenloses WLAN.' },
   { title: 'Klimaanlage', desc: 'Damit dein Besuch auch im Hochsommer zur kleinen Auszeit wird, sorgen wir jederzeit für ein angenehmes Raumklima.' },
+  { title: 'Parkplätze', desc: 'Kostenlose Parkplätze direkt vor der Tür — entspannt ankommen, ganz ohne lange Parkplatzsuche.' },
 ];

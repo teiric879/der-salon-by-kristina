@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
-import { Check, ArrowUpRight } from 'lucide-react';
+import { Check } from 'lucide-react';
 import SectionHeading from '@/components/SectionHeading';
 import Reveal from '@/components/motion/Reveal';
 import TiltCard from '@/components/motion/TiltCard';
@@ -77,12 +77,6 @@ export default function Services() {
                         </div>
                       )}
 
-                      <button
-                        onClick={open}
-                        className="link-gold pt-6 group-hover:text-gold-deep"
-                      >
-                        Termin anfragen <ArrowUpRight className="h-4 w-4" />
-                      </button>
                     </div>
                   </div>
                 </TiltCard>

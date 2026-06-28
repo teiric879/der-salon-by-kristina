@@ -27,24 +27,14 @@ export default function Prices() {
             title="Schönes Haar beginnt mit *klaren Preisen.*"
             intro="Viele Leistungen beinhalten bereits Pflege und Styling. So erwarten dich keine versteckten Zusatzkosten."
           />
-          <div className="flex w-full flex-col items-center gap-3 lg:w-auto lg:shrink-0 lg:items-end">
+          <div className="flex w-full flex-col items-center gap-6 lg:w-auto lg:shrink-0 lg:items-end">
             <WomanLengthSketch />
-            <div className="flex gap-8 border-t border-line pt-3 text-[0.9rem]">
-              <span className="flex items-baseline gap-1.5">
-                <span className="font-display text-[1.1rem] font-semibold text-ink">M</span>
-                <span className="text-ink-soft">= Schulterlänge</span>
+            <div className="flex items-center gap-3">
+              <span className="grid h-7 w-7 shrink-0 place-items-center rounded-full border border-gold/40 text-gold-deep">
+                <Check className="h-3.5 w-3.5" strokeWidth={2.25} />
               </span>
-              <span className="flex items-baseline gap-1.5">
-                <span className="font-display text-[1.1rem] font-semibold text-ink">L</span>
-                <span className="text-ink-soft">= Brustlänge</span>
-              </span>
-            </div>
-            <div className="flex items-center gap-2.5">
-              <span className="grid h-[22px] w-[22px] shrink-0 place-items-center rounded-full border border-gold/45 text-gold-deep">
-                <Check className="h-3 w-3" strokeWidth={2.5} />
-              </span>
-              <span className="text-[0.82rem] font-medium tracking-wide text-ink">
-                Alle Pakete inklusive Beratung
+              <span className="font-accent text-[1.25rem] italic leading-none text-ink">
+                Beratung in jedem Paket inklusive
               </span>
             </div>
           </div>

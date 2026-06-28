@@ -43,17 +43,32 @@ export default function Reviews() {
             transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
           >
             <div className="flex items-center gap-1">
-              {Array.from({ length: 5 }).map((_, i) => (
-                <motion.span
-                  key={i}
-                  initial={reduce ? undefined : { scale: 0, opacity: 0 }}
-                  whileInView={{ scale: 1, opacity: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ type: 'spring', stiffness: 380, damping: 14, delay: i * 0.07 }}
-                >
-                  <Star className="h-5 w-5 fill-gold text-gold" />
-                </motion.span>
-              ))}
+              {Array.from({ length: 5 }).map((_, i) => {
+                const full = i < Math.floor(reviewsRating.value);
+                const half = !full && i < reviewsRating.value;
+                return (
+                  <motion.span
+                    key={i}
+                    initial={reduce ? undefined : { scale: 0, opacity: 0 }}
+                    whileInView={{ scale: 1, opacity: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ type: 'spring', stiffness: 380, damping: 14, delay: i * 0.07 }}
+                    className="relative"
+                  >
+                    {/* base: empty star outline */}
+                    <Star className="h-5 w-5 fill-transparent text-gold" />
+                    {/* overlay: full or half fill */}
+                    {(full || half) && (
+                      <span
+                        className="absolute inset-0 overflow-hidden"
+                        style={{ width: full ? '100%' : '50%' }}
+                      >
+                        <Star className="h-5 w-5 fill-gold text-gold" />
+                      </span>
+                    )}
+                  </motion.span>
+                );
+              })}
             </div>
             <div className="flex items-baseline gap-1.5">
               <span className="font-display text-[2.4rem] leading-none text-ink">

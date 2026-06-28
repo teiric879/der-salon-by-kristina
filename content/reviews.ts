@@ -5,7 +5,7 @@ export type Review = {
   stars: number;
 };
 
-export const reviewsRating = { value: 5.0, label: 'auf Google' };
+export const reviewsRating = { value: 4.5, label: 'auf Google' };
 
 export const reviews: Review[] = [
   {

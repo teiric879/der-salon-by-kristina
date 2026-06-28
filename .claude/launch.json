@@ -1,0 +1,12 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "der-salon-kristina",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": ["run", "dev", "--", "--port", "3040"],
+      "port": 3040,
+      "autoPort": false
+    }
+  ]
+}

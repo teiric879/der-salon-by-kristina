@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { MapPin, Phone, Mail, Clock, Instagram, Facebook, MapIcon } from 'lucide-react';
+import { MapPin, Phone, Mail, Clock, Instagram, Facebook, MapIcon, MessageCircle } from 'lucide-react';
 import SectionHeading from '@/components/SectionHeading';
 import Reveal from '@/components/motion/Reveal';
 import { site } from '@/content/site';
@@ -40,15 +40,41 @@ export default function Contact() {
 
             <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
               <Reveal delay={0.05}>
-                <a href={site.phoneHref} className="flex items-start gap-4 group">
-                  <span className="grid h-11 w-11 shrink-0 place-items-center rounded-full bg-gold/10 text-gold-deep transition-all duration-300 ease-smooth group-hover:-translate-y-0.5 group-hover:bg-gold-deep group-hover:text-canvas group-hover:shadow-[0_10px_22px_-12px_rgb(var(--gold-deep)/0.7)]">
+                <div className="flex items-start gap-4">
+                  <a
+                    href={site.phoneHref}
+                    aria-label={`${site.phone} anrufen`}
+                    className="group grid h-11 w-11 shrink-0 place-items-center rounded-full bg-gold/10 text-gold-deep transition-all duration-300 ease-smooth hover:-translate-y-0.5 hover:bg-gold-deep hover:text-canvas hover:shadow-[0_10px_22px_-12px_rgb(var(--gold-deep)/0.7)]"
+                  >
                     <Phone className="h-5 w-5" />
-                  </span>
+                  </a>
                   <div>
-                    <p className="text-[0.78rem] uppercase tracking-wider text-stone">Telefon</p>
-                    <p className="font-display text-lg text-ink group-hover:text-gold-deep">{site.phone}</p>
+                    <p className="text-[0.78rem] uppercase tracking-wider text-stone">
+                      Telefon &amp; WhatsApp
+                    </p>
+                    <a
+                      href={site.phoneHref}
+                      className="font-display text-lg text-ink transition-colors hover:text-gold-deep"
+                    >
+                      {site.phone}
+                    </a>
+                    <div className="mt-2 flex items-center gap-3 text-[0.82rem]">
+                      <a href={site.phoneHref} className="link-gold">
+                        Anrufen
+                      </a>
+                      <span className="h-3 w-px bg-line" />
+                      <a
+                        href={site.whatsappHref}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-1.5 link-gold"
+                      >
+                        <MessageCircle className="h-3.5 w-3.5" />
+                        WhatsApp
+                      </a>
+                    </div>
                   </div>
-                </a>
+                </div>
               </Reveal>
               <Reveal delay={0.1}>
                 <a href={`mailto:${site.email}`} className="flex items-start gap-4 group">

@@ -11,6 +11,7 @@ export const site = {
   },
   phone: '02251 7736339',
   phoneHref: 'tel:+4922517736339',
+  whatsappHref: 'https://wa.me/4922517736339',
   email: 'team@dersalon-euskirchen.de',
   hours: [
     { day: 'Montag – Freitag', time: '09:00 – 18:00 Uhr' },
