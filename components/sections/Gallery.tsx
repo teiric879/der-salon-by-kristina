@@ -43,6 +43,12 @@ function BeforeAfterCard({
   const [pos, setPos] = useState(0.5);
   const dragging = useRef(false);
   const animating = useRef(false);
+  const rafId = useRef<number | null>(null);
+  const latestPos = useRef(0.5);
+
+  useEffect(() => () => {
+    if (rafId.current !== null) cancelAnimationFrame(rafId.current);
+  }, []);
 
   /* on first in-view: sweep from 1 → 0.5 to reveal the after side */
   useEffect(() => {
@@ -74,7 +80,12 @@ function BeforeAfterCard({
   };
   const onPointerMove = (e: React.PointerEvent) => {
     if (!dragging.current) return;
-    setPos(getPercent(e));
+    latestPos.current = getPercent(e);
+    if (rafId.current !== null) return; // coalesce to one update per frame
+    rafId.current = requestAnimationFrame(() => {
+      rafId.current = null;
+      setPos(latestPos.current);
+    });
   };
   const onPointerUp = () => {
     dragging.current = false;
@@ -92,7 +103,7 @@ function BeforeAfterCard({
     >
       {/* card container */}
       <div
-        className="relative aspect-[3/4] cursor-col-resize select-none overflow-hidden rounded-[20px] border border-line"
+        className="relative aspect-[3/4] cursor-col-resize touch-pan-y select-none overflow-hidden rounded-[20px] border border-line"
         onPointerDown={onPointerDown}
         onPointerMove={onPointerMove}
         onPointerUp={onPointerUp}

@@ -1,6 +1,5 @@
 import Navbar from '@/components/sections/Navbar';
 import Hero from '@/components/sections/Hero';
-import MariaNila from '@/components/sections/MariaNila';
 import Salon from '@/components/sections/Salon';
 import Services from '@/components/sections/Services';
 import Gallery from '@/components/sections/Gallery';
@@ -20,7 +19,6 @@ export default function Home() {
       <Navbar />
       <main>
         <Hero />
-        <MariaNila />
         <Salon />
         <Services />
         <Gallery />

@@ -3,6 +3,7 @@ import { Playfair_Display, Cormorant, Inter } from 'next/font/google';
 import { site } from '@/content/site';
 import { faqs } from '@/content/faq';
 import SmoothScroll from '@/components/motion/SmoothScroll';
+import ConsentProvider from '@/components/ConsentProvider';
 import BookingProvider from '@/components/BookingProvider';
 import './globals.css';
 
@@ -112,9 +113,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(faqLd) }}
         />
-        <BookingProvider>
-          <SmoothScroll>{children}</SmoothScroll>
-        </BookingProvider>
+        <ConsentProvider>
+          <BookingProvider>
+            <SmoothScroll>{children}</SmoothScroll>
+          </BookingProvider>
+        </ConsentProvider>
       </body>
     </html>
   );

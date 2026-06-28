@@ -2,7 +2,7 @@
 
 import { useRef } from 'react';
 import { motion, useScroll, useTransform, useReducedMotion } from 'framer-motion';
-import { Users, Leaf, Coffee, Sparkles } from 'lucide-react';
+import Image from 'next/image';
 import SmartImage from '@/components/SmartImage';
 import RevealText from '@/components/motion/RevealText';
 import Reveal from '@/components/motion/Reveal';
@@ -39,14 +39,14 @@ function LetterReveal({ text }: { text: string }) {
 }
 
 type Perk =
-  | { Icon: typeof Users; kind: 'count'; to: number; unit: string; sub: string }
-  | { Icon: typeof Users; kind: 'letters'; text: string; sub: string };
+  | { icon: string; kind: 'count'; to: number; unit: string; sub: string }
+  | { icon: string; kind: 'letters'; text: string; sub: string };
 
 const perks: Perk[] = [
-  { Icon: Users, kind: 'count', to: 5, unit: ' Expertinnen', sub: 'mit Leidenschaft für schönes Haar' },
-  { Icon: Leaf, kind: 'count', to: 100, unit: ' %', sub: 'Vegane Premium Produkte' },
-  { Icon: Coffee, kind: 'letters', text: 'Kaffee', sub: 'Eiskaffee, Cappuccino & mehr' },
-  { Icon: Sparkles, kind: 'letters', text: 'Kopfmassage', sub: 'Bei jeder Haarwäsche' },
+  { icon: 'beratung', kind: 'count', to: 5, unit: ' Expertinnen', sub: 'mit Leidenschaft für schönes Haar' },
+  { icon: 'vegan', kind: 'count', to: 100, unit: ' %', sub: 'Vegane Premium Produkte' },
+  { icon: 'kaffee', kind: 'letters', text: 'Kaffee', sub: 'Eiskaffee, Cappuccino & mehr' },
+  { icon: 'massage', kind: 'letters', text: 'Kopfmassage', sub: 'Bei jeder Haarwäsche' },
 ];
 
 export default function Experience() {
@@ -90,9 +90,13 @@ export default function Experience() {
               {perks.map((p, i) => (
                 <Reveal key={p.kind === 'count' ? p.unit : p.text} delay={i * 0.08}>
                   <div className="flex items-center gap-3.5">
-                    <span className="grid h-12 w-12 shrink-0 place-items-center rounded-full border border-gold/35 text-gold">
-                      <p.Icon className="h-[1.15rem] w-[1.15rem]" strokeWidth={1.5} />
-                    </span>
+                    <Image
+                      src={`/images/perks/${p.icon}.png`}
+                      alt=""
+                      width={96}
+                      height={96}
+                      className="h-14 w-14 shrink-0 object-contain"
+                    />
                     <div className="min-w-0">
                       <p className="font-display text-[1.15rem] leading-tight text-canvas">
                         {p.kind === 'count' ? (

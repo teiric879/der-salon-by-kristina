@@ -2,7 +2,8 @@
 
 import { Fragment, useRef } from 'react';
 import { motion, useScroll, useTransform, useReducedMotion } from 'framer-motion';
-import { Star, ArrowDown, Sparkles } from 'lucide-react';
+import { Star, StarHalf, ArrowDown } from 'lucide-react';
+import Image from 'next/image';
 import SmartImage from '@/components/SmartImage';
 import RotatingBadge from '@/components/RotatingBadge';
 import MagneticButton from '@/components/motion/MagneticButton';
@@ -33,21 +34,24 @@ export default function Hero() {
       <div className="wrap grid min-h-[calc(100svh-var(--nav-h))] grid-cols-1 items-center gap-10 py-10 lg:grid-cols-[1.05fr_0.95fr] lg:gap-16 lg:py-0">
         {/* ── Left: copy ── */}
         <motion.div style={{ y: textY }} className="relative z-10 max-w-xl">
+          {/* Eyebrow-Chip — original PNG asset */}
           <motion.div
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-            className="inline-flex items-center gap-2.5 rounded-full border border-gold/30 bg-surface/70 py-1.5 pl-1.5 pr-4 shadow-[inset_0_1px_0_rgb(255_255_255/0.7),0_12px_30px_-18px_rgb(var(--ink)/0.45)] backdrop-blur-sm"
+            className="-mb-6 inline-block"
           >
-            <span className="grid h-6 w-6 place-items-center rounded-full bg-gold/15 text-gold-deep">
-              <Sparkles className="h-3.5 w-3.5" />
-            </span>
-            <span className="text-[0.72rem] font-medium uppercase tracking-[0.16em] text-ink">
-              Natürlich schöne Ergebnisse
-            </span>
+            <Image
+              src="/images/eyebrow-chip.png"
+              alt="Natürlich schöne Ergebnisse"
+              width={480}
+              height={128}
+              priority
+              className="w-[min(330px,80vw)] h-auto"
+            />
           </motion.div>
 
-          <h1 className="display mt-6 text-[3.1rem] leading-[0.98] sm:text-[4rem] lg:text-[4.7rem]">
+          <h1 className="display mt-0 text-[3.1rem] leading-[0.98] sm:text-[4rem] lg:text-[4.7rem]">
             {headline.map((w, i) => {
               const emph = w.startsWith('*');
               const clean = w.replace(/\*/g, '');
@@ -99,11 +103,40 @@ export default function Hero() {
             className="mt-10 flex items-center gap-6"
           >
             <div className="flex items-center gap-1.5">
-              {Array.from({ length: 5 }).map((_, i) => (
+              {Array.from({ length: 4 }).map((_, i) => (
                 <Star key={i} className="h-4 w-4 fill-gold text-gold" />
               ))}
-              <span className="ml-1.5 text-sm text-ink-soft">Top bewertet in Euskirchen</span>
+              <span className="relative inline-block h-4 w-4">
+                <Star className="absolute inset-0 h-4 w-4 text-gold/35" />
+                <StarHalf className="absolute inset-0 h-4 w-4 fill-gold text-gold" />
+              </span>
+              <span className="ml-1 text-sm font-medium tabular-nums text-ink">4,5</span>
+              <span className="ml-1 text-sm text-ink-soft">Top bewertet in Euskirchen</span>
             </div>
+          </motion.div>
+
+          {/* Maria Nila partner lockup — agency-grade horizontal credential */}
+          <motion.div
+            initial={{ opacity: 0, y: 14 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 1.05 }}
+            className="mt-9 flex flex-nowrap items-center gap-x-3.5 sm:gap-x-5"
+          >
+            <span className="shrink-0 whitespace-nowrap text-[0.62rem] font-medium uppercase tracking-[0.28em] text-gold-deep sm:text-[0.72rem]">
+              Official
+            </span>
+            <span aria-hidden className="h-9 w-px shrink-0 bg-gradient-to-b from-transparent via-line to-transparent sm:h-11" />
+            <Image
+              src="/maria-nila.png"
+              alt="Maria Nila Stockholm"
+              width={1200}
+              height={468}
+              className="h-9 w-auto shrink-0 sm:h-11"
+            />
+            <span aria-hidden className="h-9 w-px shrink-0 bg-gradient-to-b from-transparent via-line to-transparent sm:h-11" />
+            <span className="shrink-0 whitespace-nowrap text-[0.62rem] font-medium uppercase tracking-[0.24em] text-ink-soft sm:text-[0.72rem]">
+              Salon &amp; Educator
+            </span>
           </motion.div>
         </motion.div>
 

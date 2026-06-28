@@ -32,7 +32,7 @@ export const site = {
 export const nav = [
   { label: 'Salon', href: '#salon' },
   { label: 'Leistungen', href: '#leistungen' },
-  { label: 'Ergebnisse', href: '#ergebnisse' },
+  { label: 'Arbeiten', href: '#ergebnisse' },
   { label: 'Team', href: '#team' },
   { label: 'Preise', href: '#preise' },
   { label: 'Kontakt', href: '#kontakt' },

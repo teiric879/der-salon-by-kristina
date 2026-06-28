@@ -1,7 +1,7 @@
 'use client';
 
 import { motion, useReducedMotion } from 'framer-motion';
-import { ArrowUpRight, Check } from 'lucide-react';
+import { ArrowUpRight, Check, ShoppingBag } from 'lucide-react';
 import SectionHeading from '@/components/SectionHeading';
 import Reveal from '@/components/motion/Reveal';
 import { priceGroups, priceNotes } from '@/content/prices';
@@ -27,13 +27,13 @@ export default function Prices() {
             title="Schönes Haar beginnt mit *klaren Preisen.*"
             intro="Viele Leistungen beinhalten bereits Pflege und Styling. So erwarten dich keine versteckten Zusatzkosten."
           />
-          <div className="flex w-full flex-col items-center gap-6 lg:w-auto lg:shrink-0 lg:items-end">
+          <div className="flex w-full flex-col items-center gap-6 sm:flex-row sm:items-center sm:justify-center sm:gap-8 lg:w-auto lg:shrink-0 lg:justify-end">
             <WomanLengthSketch />
-            <div className="flex items-center gap-3">
+            <div className="flex max-w-[12rem] items-center gap-3">
               <span className="grid h-7 w-7 shrink-0 place-items-center rounded-full border border-gold/40 text-gold-deep">
                 <Check className="h-3.5 w-3.5" strokeWidth={2.25} />
               </span>
-              <span className="font-accent text-[1.25rem] italic leading-none text-ink">
+              <span className="font-accent text-[1.25rem] italic leading-tight text-ink">
                 Beratung in jedem Paket inklusive
               </span>
             </div>
@@ -71,11 +71,25 @@ export default function Prices() {
                           className="absolute bottom-3 left-0 top-3 w-[2px] origin-bottom scale-y-0 bg-gold-deep transition-transform duration-300 ease-smooth group-hover:scale-y-100"
                         />
                         <div className="min-w-0 transition-transform duration-300 ease-smooth group-hover:translate-x-1">
-                          <p className="flex items-center gap-1.5 font-medium text-ink">
-                            {it.title}
-                            <ArrowUpRight
-                              className="h-3.5 w-3.5 -translate-x-1 text-gold-deep opacity-0 transition-all duration-300 ease-smooth group-hover:translate-x-0 group-hover:opacity-100"
-                            />
+                          <p className="flex flex-wrap items-center gap-x-2.5 gap-y-1.5 font-medium text-ink">
+                            <span className="flex items-center gap-1.5">
+                              {it.title}
+                              <ArrowUpRight
+                                className="h-3.5 w-3.5 -translate-x-1 text-gold-deep opacity-0 transition-all duration-300 ease-smooth group-hover:translate-x-0 group-hover:opacity-100"
+                              />
+                            </span>
+                            {it.isPackage && (
+                              <span className="relative inline-flex items-center gap-1.5 rounded-full border border-gold/45 bg-gradient-to-b from-[rgb(var(--gold)/0.16)] to-[rgb(var(--gold)/0.04)] px-3 py-[5px] shadow-[0_2px_10px_-5px_rgba(122,84,28,0.45)]">
+                                <span
+                                  aria-hidden
+                                  className="pointer-events-none absolute inset-[1px] rounded-full ring-1 ring-inset ring-white/45"
+                                />
+                                <ShoppingBag className="relative h-3 w-3 text-gold-deep" strokeWidth={1.6} />
+                                <span className="relative text-[0.58rem] font-semibold uppercase tracking-[0.24em] text-gold-deep">
+                                  Paket
+                                </span>
+                              </span>
+                            )}
                           </p>
                           {it.includes && it.includes.length > 0 && (
                             <div className="mt-1.5 flex flex-wrap gap-x-3 gap-y-0.5">

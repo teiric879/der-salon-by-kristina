@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 import { motion, useReducedMotion } from 'framer-motion';
 import { Star } from 'lucide-react';
 import SectionHeading from '@/components/SectionHeading';

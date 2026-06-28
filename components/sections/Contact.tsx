@@ -1,15 +1,16 @@
 'use client';
 
-import { useState } from 'react';
 import { MapPin, Phone, Mail, Clock, Instagram, Facebook, MapIcon, MessageCircle } from 'lucide-react';
 import SectionHeading from '@/components/SectionHeading';
 import Reveal from '@/components/motion/Reveal';
 import { site } from '@/content/site';
 import { useBooking } from '@/components/BookingProvider';
+import { useConsent } from '@/components/ConsentProvider';
 
 export default function Contact() {
-  const [map, setMap] = useState(false);
   const { open } = useBooking();
+  const { has, grant } = useConsent();
+  const map = has('maps');
   const embed =
     'https://www.google.com/maps?q=Billiger+Str.+60,+53879+Euskirchen&output=embed';
 
@@ -152,7 +153,7 @@ export default function Contact() {
               />
             ) : (
               <button
-                onClick={() => setMap(true)}
+                onClick={() => grant('maps')}
                 className="group flex h-full w-full flex-col items-center justify-center gap-4 bg-surface text-center"
               >
                 <span className="grid h-16 w-16 place-items-center rounded-full bg-gold/10 text-gold-deep transition-all duration-300 ease-smooth group-hover:-translate-y-1 group-hover:bg-gold-deep group-hover:text-canvas group-hover:shadow-[0_14px_30px_-14px_rgb(var(--gold-deep)/0.7)]">

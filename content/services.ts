@@ -59,10 +59,10 @@ export const groups = ['Color & Blond', 'Schnitt & Styling', 'Pflege & Treatment
 
 /* What sets the salon apart — pulled from the salon's real experience. */
 export const experience = [
-  { title: 'Beratung', desc: 'Keine Standardlösung, sondern eine Beratung, die so individuell ist wie dein Haar.' },
-  { title: 'Vegane Produkte', desc: 'Vegane und tierversuchsfreie Produkte, die dein Haar pflegen und gleichzeitig unsere Umwelt schonen.' },
-  { title: 'Massage', desc: 'Eine entspannende Kopfmassage und unsere Massage-Sessel machen deine Haarwäsche zum Wohlfühlmoment.' },
-  { title: 'Kaffee & WLAN', desc: 'Wir verwöhnen nicht nur dein Haar. Freu dich auf hochwertige Kaffeespezialitäten, MONIN Sirups und kostenloses WLAN.' },
-  { title: 'Klimaanlage', desc: 'Damit dein Besuch auch im Hochsommer zur kleinen Auszeit wird, sorgen wir jederzeit für ein angenehmes Raumklima.' },
-  { title: 'Parkplätze', desc: 'Kostenlose Parkplätze direkt vor der Tür — entspannt ankommen, ganz ohne lange Parkplatzsuche.' },
+  { title: 'Beratung', icon: 'beratung', desc: 'Individuelle Beratung für dein perfektes Haar.' },
+  { title: 'Vegane Produkte', icon: 'vegan', desc: 'Vegane & tierversuchsfreie Produkte für dich und unsere Umwelt.' },
+  { title: 'Kopfmassage', icon: 'massage', desc: 'Entspannende Kopfmassage für mehr Wohlbefinden bei jeder Haarwäsche.' },
+  { title: 'Kaffee & WLAN', icon: 'kaffee', desc: 'Hochwertige Kaffeespezialitäten, MONIN Sirups & kostenloses WLAN.' },
+  { title: 'Klimaanlage', icon: 'klima', desc: 'Angenehmes Raumklima für deine kleine Auszeit.' },
+  { title: 'Parkplätze', icon: 'parken', desc: 'Kostenlose Parkplätze direkt vor dem Salon.' },
 ];

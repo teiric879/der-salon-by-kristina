@@ -4,9 +4,11 @@ import { Instagram, Facebook, ArrowUpRight } from 'lucide-react';
 import RevealText from '@/components/motion/RevealText';
 import { site, nav } from '@/content/site';
 import { useBooking } from '@/components/BookingProvider';
+import { useConsent } from '@/components/ConsentProvider';
 
 export default function Footer() {
   const { open } = useBooking();
+  const { openSettings } = useConsent();
   const year = new Date().getFullYear();
 
   return (
@@ -109,6 +111,9 @@ export default function Footer() {
           <div className="flex gap-6">
             <a href="/impressum" className="hover:text-gold">Impressum</a>
             <a href="/datenschutz" className="hover:text-gold">Datenschutz</a>
+            <button type="button" onClick={openSettings} className="hover:text-gold">
+              Cookie-Einstellungen
+            </button>
           </div>
         </div>
       </div>

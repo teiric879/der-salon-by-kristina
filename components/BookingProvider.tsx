@@ -4,6 +4,7 @@ import { createContext, useCallback, useContext, useEffect, useState } from 'rea
 import { AnimatePresence, motion } from 'framer-motion';
 import { X, Calendar, ShieldCheck, ArrowUpRight } from 'lucide-react';
 import { site } from '@/content/site';
+import { useConsent } from '@/components/ConsentProvider';
 
 type Ctx = { open: () => void; close: () => void };
 const BookingContext = createContext<Ctx>({ open: () => {}, close: () => {} });
@@ -14,17 +15,11 @@ export function useBooking() {
 
 export default function BookingProvider({ children }: { children: React.ReactNode }) {
   const [isOpen, setOpen] = useState(false);
-  const [consent, setConsent] = useState(false);
+  const { has, grant } = useConsent();
+  const consent = has('booking');
 
   const open = useCallback(() => setOpen(true), []);
   const close = useCallback(() => setOpen(false), []);
-
-  useEffect(() => {
-    if (consent) return;
-    try {
-      if (localStorage.getItem('ds_booking_consent') === '1') setConsent(true);
-    } catch {}
-  }, [consent]);
 
   useEffect(() => {
     document.body.style.overflow = isOpen ? 'hidden' : '';
@@ -37,10 +32,7 @@ export default function BookingProvider({ children }: { children: React.ReactNod
   }, [isOpen, close]);
 
   function accept() {
-    setConsent(true);
-    try {
-      localStorage.setItem('ds_booking_consent', '1');
-    } catch {}
+    grant('booking');
   }
 
   return (

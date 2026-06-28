@@ -1,6 +1,8 @@
 export type PriceItem = {
   title: string;
   includes?: string[];
+  /** Marks a curated package — rendered with an elegant "Paket"-bag badge. */
+  isPackage?: boolean;
   m: number;
   l: number;
 };
@@ -22,19 +24,19 @@ export const priceGroups: PriceGroup[] = [
   {
     group: 'Blond & Highlights',
     items: [
-      { title: 'Balayage-Paket', includes: ['Pflege', 'Olaplex', 'Gloss', 'Schnitt & Styling'], m: 320, l: 350 },
-      { title: 'Airtouch Strähnen-Paket', includes: ['Pflege', 'Olaplex', 'Gloss', 'Schnitt & Styling'], m: 320, l: 350 },
-      { title: 'Airtouch Full Head-Paket', includes: ['Pflege', 'Olaplex', 'Gloss', 'Schnitt & Styling'], m: 400, l: 430 },
-      { title: 'Strähnen-Paket', includes: ['Pflege', 'Gloss', 'Schnitt & Styling'], m: 230, l: 260 },
-      { title: 'Auffrischungs-Paket', includes: ['Contouring', 'Gloss', 'Schnitt & Styling'], m: 180, l: 200 },
+      { title: 'Balayage', isPackage: true, includes: ['Pflege', 'Olaplex', 'Gloss', 'Schnitt & Styling'], m: 320, l: 350 },
+      { title: 'Airtouch Strähnen', isPackage: true, includes: ['Pflege', 'Olaplex', 'Gloss', 'Schnitt & Styling'], m: 320, l: 350 },
+      { title: 'Airtouch Full Head', isPackage: true, includes: ['Pflege', 'Olaplex', 'Gloss', 'Schnitt & Styling'], m: 400, l: 430 },
+      { title: 'Strähnen', isPackage: true, includes: ['Pflege', 'Gloss', 'Schnitt & Styling'], m: 230, l: 260 },
+      { title: 'Auffrischung', isPackage: true, includes: ['Contouring', 'Gloss', 'Schnitt & Styling'], m: 180, l: 200 },
     ],
   },
   {
     group: 'Coloration',
     items: [
-      { title: 'Ansatzfarbe-Paket', includes: ['Pflege', 'Schnitt & Styling'], m: 130, l: 145 },
-      { title: 'Farbe komplett-Paket', includes: ['Pflege', 'Schnitt & Styling'], m: 165, l: 190 },
-      { title: 'Glossing', includes: ['Pflege', 'Schnitt & Styling'], m: 125, l: 145 },
+      { title: 'Ansatzfarbe', isPackage: true, includes: ['Pflege', 'Schnitt & Styling'], m: 130, l: 145 },
+      { title: 'Farbe komplett', isPackage: true, includes: ['Pflege', 'Schnitt & Styling'], m: 165, l: 190 },
+      { title: 'Glossing', isPackage: true, includes: ['Pflege', 'Schnitt & Styling'], m: 125, l: 145 },
     ],
   },
   {

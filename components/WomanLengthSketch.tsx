@@ -10,7 +10,7 @@ export default function WomanLengthSketch() {
 
   return (
     <motion.div
-      className="w-full max-w-[360px]"
+      className="w-[360px] max-w-full shrink-0 sm:w-[410px] lg:w-[460px]"
       initial={{ opacity: 0, y: reduce ? 0 : 18 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: '-15%' }}
@@ -19,9 +19,9 @@ export default function WomanLengthSketch() {
       <Image
         src="/images/skizze.png"
         alt="Längen-Guide: M entspricht Schulterlänge, L entspricht Brustlänge"
-        width={1122}
-        height={1402}
-        sizes="(max-width: 768px) 80vw, 360px"
+        width={1536}
+        height={1024}
+        sizes="(max-width: 768px) 88vw, 440px"
         className="h-auto w-full"
         priority={false}
       />
